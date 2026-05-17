@@ -127,14 +127,73 @@
     .submit-b:hover { background: var(--accent); color: #fff; }
 
     /* LIGHTBOX */
-    .lb { position: fixed; inset: 0; background: rgba(20, 18, 15, 0.95); z-index: 600; display: none; align-items: center; justify-content: center; flex-direction: column; padding: 2rem; }
-    .lb.open { display: flex; }
-    #lb-img { max-width: 85vw; max-height: 70vh; object-fit: contain; }
-    .lb-c { text-align: center; margin-top: 1rem; color: #f5f3ef; }
-    .lb-t { font-size: 1.3rem; font-style: italic; font-weight: 300; margin-bottom: 0.2rem; }
-    .lb-m { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); }
-    .lb-close { position: fixed; top: 1.2rem; right: 1.5rem; background: none; border: 1px solid rgba(245, 243, 239, 0.25); color: #f5f3ef; font-family: 'DM Mono', monospace; font-size: 11px; padding: 0.3rem 0.8rem; cursor: pointer; border-radius: 4px; transition: all 0.2s; }
-    .lb-close:hover { border-color: var(--accent); color: var(--accent); }
+    .lb {
+      position: fixed;
+      inset: 0;
+      background: rgba(20, 18, 15, 0.95);
+      z-index: 600;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 2rem;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .lb.open {
+      display: flex;
+      opacity: 1;
+    }
+    #lb-img {
+      max-width: 80vw;
+      max-height: 65vh;
+      object-fit: contain;
+      display: block;
+      border-radius: 4px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    }
+    .lb-c {
+      text-align: center;
+      margin-top: 1.5rem;
+      color: #f5f3ef;
+      max-width: 80vw;
+    }
+    .lb-t {
+      font-size: 1.4rem;
+      font-style: italic;
+      font-weight: 300;
+      margin-bottom: 0.4rem;
+      letter-spacing: 0.03em;
+    }
+    .lb-m {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      opacity: 0.9;
+    }
+    .lb-close {
+      position: fixed;
+      top: 1.5rem;
+      right: 2rem;
+      background: rgba(26, 23, 20, 0.8);
+      border: 1px solid rgba(245, 243, 239, 0.3);
+      color: #f5f3ef;
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: all 0.2s;
+      z-index: 601;
+      backdrop-filter: blur(4px);
+    }
+    .lb-close:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: rgba(26, 23, 20, 0.95);
+    }
 
     /* FOOTER */
     .footer { text-align: center; padding: 2.5rem 1.5rem 1.5rem; border-top: 1px solid var(--border); margin-top: 3rem; }
@@ -278,8 +337,8 @@
 </div>
 
 <!-- LIGHTBOX -->
-<div class="lb" id="lb" onclick="if(event.target===this)closeLb()">
-  <button class="lb-close" onclick="closeLb()">Close ✕</button>
+<div class="lb" id="lb">
+  <button class="lb-close" onclick="closeLb()">✕</button>
   <img id="lb-img" src="" alt="">
   <div class="lb-c">
     <div class="lb-t" id="lb-t"></div>
@@ -449,10 +508,17 @@ function makeTile(art, items, idx, cls) {
 
 // ===== LIGHTBOX =====
 function openLb(items, idx) {
-  document.getElementById('lb-img').src = items[idx].src;
-  document.getElementById('lb-t').textContent = items[idx].title;
-  document.getElementById('lb-m').textContent = items[idx].desc;
-  document.getElementById('lb').classList.add('open');
+  const img = document.getElementById('lb-img');
+  const title = document.getElementById('lb-t');
+  const desc = document.getElementById('lb-m');
+  const lb = document.getElementById('lb');
+  
+  img.src = items[idx].src;
+  img.alt = items[idx].title;
+  title.textContent = items[idx].title || 'Untitled';
+  desc.textContent = items[idx].desc || '';
+  
+  lb.classList.add('open');
   document.body.style.overflow = 'hidden';
 }
 
@@ -461,8 +527,18 @@ function closeLb() {
   document.body.style.overflow = '';
 }
 
+// Close lightbox on ESC key
 document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') closeLb();
+  if (e.key === 'Escape' && document.getElementById('lb').classList.contains('open')) {
+    closeLb();
+  }
+});
+
+// Close lightbox when clicking outside image
+document.getElementById('lb').addEventListener('click', (e) => {
+  if (e.target.id === 'lb') {
+    closeLb();
+  }
 });
 
 // ===== NAV =====
