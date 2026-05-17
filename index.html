@@ -1,146 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Liam Gallery</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet"/>
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--bg:#f5f3ef;--wall:#ece8e0;--accent:#c8a96e;--dark:#1a1714;--mid:#5a5550;--light:#9a958f;--white:#fff;--border:#d6d0c4}
-html{scroll-behavior:smooth}
-body{font-family:'Cormorant Garamond',Georgia,serif;background:var(--bg);color:var(--dark);min-height:100vh}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Liam Gallery</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #f5f3ef;
+      --wall: #ece8e0;
+      --accent: #c8a96e;
+      --dark: #1a1714;
+      --mid: #5a5550;
+      --light: #9a958f;
+      --border: #d6d0c4;
+    }
+    body {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    /* HEADER */
+    .site-header {
+      text-align: center;
+      padding: 3rem 1.5rem 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .header-top { width: 60px; height: 1px; background: var(--accent); margin: 0 auto 1.5rem; }
+    .header-eyebrow { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--light); margin-bottom: 1rem; }
+    .header-title { font-size: 2.8rem; font-weight: 300; letter-spacing: 0.05em; line-height: 1.1; }
+    .header-title em { font-style: italic; color: var(--mid); }
+    .header-tagline { margin-top: 1rem; font-size: 1.05rem; font-style: italic; color: var(--mid); }
+    .header-year { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.2em; color: var(--accent); margin-top: 1.25rem; }
 
-.site-header{text-align:center;padding:clamp(2.5rem,5vw,4rem) 1.5rem 2rem;border-bottom:1px solid var(--border)}
-.site-header::before{content:'';display:block;width:60px;height:1px;background:var(--accent);margin:0 auto 1.75rem}
-.eyebrow{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--light);margin-bottom:1rem}
-.site-title{font-size:clamp(2.2rem,6vw,3.6rem);font-weight:300;letter-spacing:.05em;line-height:1.1}
-.site-title em{font-style:italic;color:var(--mid)}
-.tagline{margin-top:1rem;font-size:1.05rem;font-style:italic;color:var(--mid);font-weight:300}
-.header-year{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.2em;color:var(--accent);margin-top:1.25rem}
+    /* NAV */
+    .site-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      padding: 1.2rem 1.5rem;
+      border-bottom: 1px solid var(--border);
+      background: var(--bg);
+      position: sticky;
+      top: 0;
+      z-index: 300;
+    }
+    .nav-links { display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center; }
+    .nav-link { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--mid); text-decoration: none; padding-bottom: 2px; border-bottom: 1px solid transparent; transition: all 0.2s; }
+    .nav-link:hover, .nav-link.active { color: var(--dark); border-bottom-color: var(--accent); }
+    .lang-sw { display: flex; gap: 0.3rem; align-items: center; margin-top: 0.5rem; width: 100%; justify-content: center; order: 10; }
+    .lang-btn { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; background: none; border: none; color: var(--light); cursor: pointer; padding: 2px 4px; border-bottom: 1px solid transparent; transition: all 0.2s; }
+    .lang-btn.active { color: var(--dark); border-bottom-color: var(--accent); }
+    .lang-sep { font-size: 9px; color: var(--border); }
 
-.site-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:1.5rem;padding:1.25rem 1.5rem;border-bottom:1px solid var(--border);background:var(--bg);position:sticky;top:0;z-index:300}
-.nav-links{display:flex;flex-wrap:wrap;justify-content:center;gap:1.5rem}
-.nav-links a{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--mid);text-decoration:none;border-bottom:1px solid transparent;transition:color .2s,border-color .2s;padding-bottom:2px}
-.nav-links a:hover,.nav-links a.active{color:var(--dark);border-bottom-color:var(--accent)}
-.lang-switcher{display:flex;align-items:center;gap:.35rem;flex-wrap:wrap;justify-content:center;width:100%;margin-top:.5rem;order:10}
-.lang-btn{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;background:none;border:none;color:var(--light);cursor:pointer;padding:2px 4px;border-bottom:1px solid transparent;transition:color .2s,border-color .2s}
-.lang-btn:hover{color:var(--dark)}
-.lang-btn.active{color:var(--dark);border-bottom-color:var(--accent)}
-.lang-sep{color:var(--border);font-size:9px}
+    /* SECTIONS */
+    .sec-head { text-align: center; padding: 3rem 1rem 0; }
+    .sec-label { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--light); }
+    .sec-line { width: 40px; height: 1px; background: var(--accent); margin: 0.6rem auto 2.5rem; }
 
-.sec-hd{text-align:center;padding:3rem 1rem 0}
-.sec-lbl{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--light)}
-.sec-rule{width:40px;height:1px;background:var(--accent);margin:.6rem auto 2.5rem}
+    /* GALLERY */
+    .featured { display: grid; grid-template-columns: 2fr 1fr; gap: 3px; padding: 0 1.5rem; }
+    .gallery { columns: 3 200px; column-gap: 3px; padding: 3px 1.5rem 0; }
+    .gitem { break-inside: avoid; margin-bottom: 3px; }
+    .tile { position: relative; overflow: hidden; background: var(--wall); cursor: pointer; }
+    .tile img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s; }
+    .tile:hover img { transform: scale(1.04); }
+    .tile:hover .ov { opacity: 1; }
+    .tile.f1, .tile.f2 { height: 380px; }
+    .tile.t { height: 220px; }
+    .ov { position: absolute; inset: 0; background: rgba(26, 23, 20, 0.68); opacity: 0; transition: opacity 0.3s; display: flex; flex-direction: column; justify-content: flex-end; padding: 1.2rem; }
+    .ov-t { font-size: 1.15rem; font-style: italic; font-weight: 300; color: #f5f3ef; margin-bottom: 0.2rem; }
+    .ov-m { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); }
+    .empty { text-align: center; padding: 4rem 2rem; color: var(--light); }
+    .empty-ico { font-size: 2.5rem; opacity: 0.4; margin-bottom: 0.8rem; }
 
-.featured-grid{display:grid;grid-template-columns:2fr 1fr;gap:3px;padding:0 1.5rem}
-.art-grid{columns:3 200px;column-gap:3px;padding:3px 1.5rem 0}
-.art-item{break-inside:avoid;margin-bottom:3px}
+    /* ABOUT */
+    .about { max-width: 700px; margin: 0 auto; padding: 0 1.5rem 3rem; }
+    .about h2 { font-size: 1.5rem; font-weight: 300; font-style: italic; margin-bottom: 1rem; text-align: center; }
+    .about p { font-size: 1rem; margin-bottom: 1rem; color: var(--mid); }
+    .upload-sec { text-align: center; margin: 2rem 0; }
+    .upload-btn { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; background: none; border: 1px solid var(--accent); color: var(--accent); padding: 0.6rem 1.5rem; cursor: pointer; border-radius: 4px; transition: all 0.2s; }
+    .upload-btn:hover { background: var(--accent); color: #fff; }
 
-.tile{position:relative;overflow:hidden;background:var(--wall);cursor:pointer;display:block}
-.tile img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s ease}
-.tile:hover img{transform:scale(1.04)}
-.tile:hover .ov{opacity:1}
-.tile.featured-1{height:clamp(260px,35vw,380px)}
-.tile.featured-2{height:clamp(260px,35vw,380px)}
-.tile.thumb{height:clamp(160px,18vw,260px)}
+    /* MODAL */
+    .modal-bg { position: fixed; inset: 0; background: rgba(26, 23, 20, 0.5); z-index: 500; display: none; align-items: center; justify-content: center; }
+    .modal-bg.open { display: flex; }
+    .modal { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 2rem; max-width: 500px; width: 90%; max-height: 85vh; overflow-y: auto; }
+    .modal-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
+    .modal-t { font-size: 1.3rem; font-weight: 300; font-style: italic; }
+    .modal-close { background: none; border: none; font-size: 1.2rem; color: var(--light); cursor: pointer; padding: 4px; }
 
-.ov{position:absolute;inset:0;background:rgba(26,23,20,.68);opacity:0;transition:opacity .3s;display:flex;flex-direction:column;justify-content:flex-end;padding:1.2rem 1.3rem}
-.ov-title{font-size:1.15rem;font-style:italic;font-weight:300;color:#f5f3ef;margin-bottom:.2rem}
-.ov-meta{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
+    /* TABS */
+    .tabs { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; border-bottom: 1px solid var(--border); padding-bottom: 0.8rem; }
+    .tab-b { background: none; border: none; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--light); cursor: pointer; padding-bottom: 3px; border-bottom: 2px solid transparent; transition: all 0.2s; }
+    .tab-b.active { color: var(--dark); border-bottom-color: var(--accent); }
+    .tab { display: none; }
+    .tab.active { display: block; }
 
-.empty{text-align:center;padding:4rem 2rem;color:var(--light)}
-.empty-icon{font-size:2.5rem;opacity:.4;margin-bottom:.8rem}
-.empty p{font-style:italic;font-size:1rem}
+    /* CANVAS */
+    #canvas { border: 1.5px solid var(--border); border-radius: 4px; cursor: crosshair; display: block; margin-bottom: 1rem; background: #fff; width: 100%; max-height: 300px; }
+    .canvas-btns { display: flex; gap: 0.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
+    .canvas-btn { padding: 0.4rem 0.8rem; border: 1px solid var(--border); background: #fff; border-radius: 4px; cursor: pointer; font-family: 'DM Mono', monospace; font-size: 9px; text-transform: uppercase; transition: all 0.2s; }
+    .canvas-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .color-in { width: 40px; height: 35px; border: 1px solid var(--border); border-radius: 4px; cursor: pointer; }
 
-.about-sec{max-width:700px;margin:0 auto;padding:0 1.5rem 3rem}
-.about-sec h2{font-size:1.5rem;font-weight:300;font-style:italic;margin-bottom:1rem;text-align:center}
-.about-sec p{font-size:1rem;line-height:1.8;margin-bottom:1rem;color:var(--mid)}
+    /* FORM */
+    .form-g { margin-bottom: 1.2rem; }
+    .form-l { display: block; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--mid); margin-bottom: 0.5rem; }
+    .form-i, .form-s, .form-ta { width: 100%; border: 1px solid var(--border); border-radius: 4px; padding: 0.6rem 0.8rem; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1rem; color: var(--dark); background: #fff; transition: border-color 0.2s; }
+    .form-i:focus, .form-s:focus, .form-ta:focus { outline: none; border-color: var(--accent); }
+    .form-s { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='7'%3E%3Cpath d='M1 1l4.5 4.5L10 1' stroke='%239a958f' stroke-width='1.4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 0.75rem center; padding-right: 2rem; }
 
-.upload-btn-sec{text-align:center;margin:2rem 0}
-.upload-btn{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;background:none;border:1px solid var(--accent);color:var(--accent);padding:.6rem 1.5rem;cursor:pointer;border-radius:4px;transition:background .2s,color .2s;display:inline-block}
-.upload-btn:hover{background:var(--accent);color:var(--white)}
+    /* FILE */
+    .file-w { position: relative; border: 2px dashed var(--border); border-radius: 4px; padding: 1.5rem; text-align: center; cursor: pointer; transition: all 0.2s; }
+    .file-w:hover { border-color: var(--accent); background: rgba(200, 169, 110, 0.04); }
+    .file-w input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+    .file-l { display: block; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--light); pointer-events: none; margin-bottom: 0.4rem; }
+    .file-h { display: block; font-size: 0.85rem; color: var(--light); font-style: italic; pointer-events: none; }
 
-.modal-backdrop{position:fixed;inset:0;background:rgba(26,23,20,.5);z-index:500;opacity:0;pointer-events:none;transition:opacity .3s}
-.modal-backdrop.open{opacity:1;pointer-events:all}
+    .submit-b { width: 100%; padding: 0.75rem; border: 1px solid var(--accent); background: transparent; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent); cursor: pointer; border-radius: 4px; transition: all 0.2s; margin-top: 0.5rem; }
+    .submit-b:hover { background: var(--accent); color: #fff; }
 
-.modal{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%) scale(.9);z-index:501;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:2rem;max-width:500px;width:90%;max-height:85vh;overflow-y:auto;opacity:0;pointer-events:none;transition:opacity .3s,transform .3s}
-.modal-backdrop.open .modal{opacity:1;pointer-events:all;transform:translate(-50%,-50%) scale(1)}
+    /* LIGHTBOX */
+    .lb { position: fixed; inset: 0; background: rgba(20, 18, 15, 0.95); z-index: 600; display: none; align-items: center; justify-content: center; flex-direction: column; padding: 2rem; }
+    .lb.open { display: flex; }
+    #lb-img { max-width: 85vw; max-height: 70vh; object-fit: contain; }
+    .lb-c { text-align: center; margin-top: 1rem; color: #f5f3ef; }
+    .lb-t { font-size: 1.3rem; font-style: italic; font-weight: 300; margin-bottom: 0.2rem; }
+    .lb-m { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); }
+    .lb-close { position: fixed; top: 1.2rem; right: 1.5rem; background: none; border: 1px solid rgba(245, 243, 239, 0.25); color: #f5f3ef; font-family: 'DM Mono', monospace; font-size: 11px; padding: 0.3rem 0.8rem; cursor: pointer; border-radius: 4px; transition: all 0.2s; }
+    .lb-close:hover { border-color: var(--accent); color: var(--accent); }
 
-.modal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem}
-.modal-title{font-size:1.3rem;font-weight:300;font-style:italic}
-.modal-close{background:none;border:none;font-size:1.2rem;color:var(--light);cursor:pointer;padding:4px}
-.modal-close:hover{color:var(--dark)}
+    /* FOOTER */
+    .footer { text-align: center; padding: 2.5rem 1.5rem 1.5rem; border-top: 1px solid var(--border); margin-top: 3rem; }
+    .footer p { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--light); }
 
-.modal-tabs{display:flex;gap:.5rem;margin-bottom:1.5rem;border-bottom:1px solid var(--border);padding-bottom:.8rem}
-.tab-btn{background:none;border:none;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--light);cursor:pointer;padding-bottom:3px;border-bottom:2px solid transparent;transition:color .2s,border-color .2s}
-.tab-btn:hover{color:var(--dark)}
-.tab-btn.active{color:var(--dark);border-bottom-color:var(--accent)}
+    /* TOAST */
+    .toast { position: fixed; bottom: 1.5rem; left: 50%; transform: translateX(-50%) translateY(40px); background: var(--dark); color: #f5f3ef; padding: 0.5rem 1.2rem; border-radius: 20px; font-family: 'DM Mono', monospace; font-size: 10px; opacity: 0; transition: all 0.3s; pointer-events: none; z-index: 9999; }
+    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
-.tab-content{display:none}
-.tab-content.active{display:block}
-
-#canvas{border:1.5px solid var(--border);border-radius:4px;cursor:crosshair;display:block;margin-bottom:1rem;background:var(--white);width:100%;max-height:300px}
-.canvas-tools{display:flex;gap:.5rem;margin-bottom:1rem;flex-wrap:wrap}
-.canvas-tool{padding:.4rem .8rem;border:1px solid var(--border);background:var(--white);border-radius:4px;cursor:pointer;font-family:'DM Mono',monospace;font-size:9px;text-transform:uppercase;transition:all .2s}
-.canvas-tool:hover{border-color:var(--accent);color:var(--accent)}
-.color-picker{width:40px;height:35px;border:1px solid var(--border);border-radius:4px;cursor:pointer}
-
-.form-group{margin-bottom:1.2rem}
-.form-label{display:block;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--mid);margin-bottom:.5rem}
-.form-input,.form-select,.form-textarea{width:100%;border:1px solid var(--border);border-radius:4px;padding:.6rem .8rem;font-family:'Cormorant Garamond',Georgia,serif;font-size:1rem;color:var(--dark);background:var(--white);transition:border-color .2s}
-.form-input:focus,.form-select:focus,.form-textarea:focus{outline:none;border-color:var(--accent)}
-.form-select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='7'%3E%3Cpath d='M1 1l4.5 4.5L10 1' stroke='%239a958f' stroke-width='1.4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .75rem center;padding-right:2rem;-webkit-appearance:none}
-
-.file-input-wrap{position:relative;border:2px dashed var(--border);border-radius:4px;padding:1.5rem;text-align:center;cursor:pointer;transition:border-color .2s,background .2s}
-.file-input-wrap:hover{border-color:var(--accent);background:rgba(200,169,110,.04)}
-.file-input-wrap input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
-.file-label{display:block;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--light);pointer-events:none;margin-bottom:.4rem}
-.file-hint{display:block;font-size:.85rem;color:var(--light);font-style:italic;pointer-events:none}
-
-.submit-btn{width:100%;padding:.75rem;border:1px solid var(--accent);background:transparent;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:var(--accent);cursor:pointer;border-radius:4px;transition:background .2s,color .2s;margin-top:.5rem}
-.submit-btn:hover{background:var(--accent);color:var(--white)}
-.submit-btn:disabled{opacity:.4;cursor:not-allowed}
-
-.lightbox{display:none;position:fixed;inset:0;background:rgba(20,18,15,.95);z-index:600;align-items:center;justify-content:center;flex-direction:column;padding:2rem}
-.lightbox.open{display:flex}
-#lb-img{max-width:85vw;max-height:70vh;object-fit:contain}
-.lb-cap{text-align:center;margin-top:1rem;color:#f5f3ef}
-.lb-title{font-size:1.3rem;font-style:italic;font-weight:300;margin-bottom:.2rem}
-.lb-meta{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent)}
-.lb-close{position:fixed;top:1.2rem;right:1.5rem;background:none;border:1px solid rgba(245,243,239,.25);color:#f5f3ef;font-family:'DM Mono',monospace;font-size:11px;padding:.3rem .8rem;cursor:pointer;border-radius:4px;transition:all .2s}
-.lb-close:hover{border-color:var(--accent);color:var(--accent)}
-
-.site-footer{text-align:center;padding:2.5rem 1.5rem 1.5rem;border-top:1px solid var(--border);margin-top:3rem}
-.site-footer p{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--light)}
-
-.toast{position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%) translateY(40px);background:var(--dark);color:#f5f3ef;padding:.5rem 1.2rem;border-radius:20px;font-family:'DM Mono',monospace;font-size:10px;opacity:0;transition:opacity .3s,transform .3s;pointer-events:none;z-index:9999;white-space:nowrap}
-.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
-
-@media(max-width:900px){.featured-grid{grid-template-columns:1fr}.art-grid{columns:2}}
-@media(max-width:600px){.art-grid{columns:1}.site-nav{gap:.8rem}.lang-switcher{margin-top:.8rem}.modal{width:95%;max-width:100%;padding:1.5rem}.site-title{font-size:1.8rem}}
-</style>
+    @media(max-width:900px) { .featured { grid-template-columns: 1fr; } .gallery { columns: 2; } }
+    @media(max-width:600px) { .gallery { columns: 1; } .modal { width: 95%; padding: 1.5rem; } }
+  </style>
 </head>
 <body>
 
 <header class="site-header">
-  <p class="eyebrow" data-i18n="eyebrow">A personal collection</p>
-  <h1 class="site-title"><em data-i18n="title-em">Liam</em> Gallery</h1>
-  <p class="tagline" data-i18n="tagline">Original works by a young artist</p>
+  <div class="header-top"></div>
+  <p class="header-eyebrow">A personal collection</p>
+  <h1 class="header-title"><em>Liam</em> Gallery</h1>
+  <p class="header-tagline">Original works by a young artist</p>
   <p class="header-year">Est. 2025 — Ongoing</p>
 </header>
 
 <nav class="site-nav">
   <div class="nav-links">
-    <a href="#all" class="nav-link active" data-i18n="nav-all">All works</a>
-    <a href="#paintings" class="nav-link" data-i18n="nav-paintings">Paintings</a>
-    <a href="#drawings" class="nav-link" data-i18n="nav-drawings">Drawings</a>
-    <a href="#mixed" class="nav-link" data-i18n="nav-mixed">Mixed media</a>
-    <a href="#about" class="nav-link" data-i18n="nav-about">About</a>
+    <a href="#all" class="nav-link active">All works</a>
+    <a href="#paintings" class="nav-link">Paintings</a>
+    <a href="#drawings" class="nav-link">Drawings</a>
+    <a href="#mixed" class="nav-link">Mixed media</a>
+    <a href="#about" class="nav-link">About</a>
   </div>
-  <div class="lang-switcher">
+  <div class="lang-sw">
     <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
     <span class="lang-sep">|</span>
     <button class="lang-btn" id="btn-fr" onclick="setLang('fr')">FR</button>
@@ -150,94 +176,330 @@ body{font-family:'Cormorant Garamond',Georgia,serif;background:var(--bg);color:v
 </nav>
 
 <main>
-<section id="all"><div class="sec-hd"><p class="sec-lbl" data-i18n="sec-featured">Featured works</p><div class="sec-rule"></div></div><div id="gallery-root"></div><div class="empty" id="empty-state" style="display:none"><div class="empty-icon">🖼</div><p data-i18n="empty">No works yet.</p></div></section>
-<section id="paintings" style="display:none"><div class="sec-hd"><p class="sec-lbl" data-i18n="sec-paintings">Paintings</p><div class="sec-rule"></div></div><div id="gallery-paintings"></div><div class="empty" id="empty-paintings" style="display:none"><div class="empty-icon">🎨</div><p data-i18n="empty">No works yet.</p></div></section>
-<section id="drawings" style="display:none"><div class="sec-hd"><p class="sec-lbl" data-i18n="sec-drawings">Drawings</p><div class="sec-rule"></div></div><div id="gallery-drawings"></div><div class="empty" id="empty-drawings" style="display:none"><div class="empty-icon">✏️</div><p data-i18n="empty">No works yet.</p></div></section>
-<section id="mixed" style="display:none"><div class="sec-hd"><p class="sec-lbl" data-i18n="sec-mixed">Mixed media</p><div class="sec-rule"></div></div><div id="gallery-mixed"></div><div class="empty" id="empty-mixed" style="display:none"><div class="empty-icon">🎭</div><p data-i18n="empty">No works yet.</p></div></section>
-<section id="about" style="display:none"><div class="sec-hd"><p class="sec-lbl" data-i18n="sec-about">Add your own drawings</p><div class="sec-rule"></div></div><div class="about-sec"><h2 data-i18n="about-title">Add your child's drawings</h2><p data-i18n="about-p1">Upload photos of drawings or draw directly in the browser. Your artworks are stored on this device.</p><div class="upload-btn-sec"><button class="upload-btn" onclick="openModal()" data-i18n="upload-cta">Upload a drawing +</button></div><p style="margin-top:2rem"><a href="https://app.netlify.com/drop" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent)" data-i18n="deploy-link">Deploy to Netlify →</a></p></div></section>
+  <section id="all">
+    <div class="sec-head"><p class="sec-label">Featured works</p><div class="sec-line"></div></div>
+    <div id="gallery-root"></div>
+    <div class="empty" id="empty-all" style="display:none"><div class="empty-ico">🖼</div><p>No works yet</p></div>
+  </section>
+
+  <section id="paintings" style="display:none">
+    <div class="sec-head"><p class="sec-label">Paintings</p><div class="sec-line"></div></div>
+    <div id="gallery-paintings"></div>
+    <div class="empty" id="empty-paintings" style="display:none"><div class="empty-ico">🎨</div><p>No works yet</p></div>
+  </section>
+
+  <section id="drawings" style="display:none">
+    <div class="sec-head"><p class="sec-label">Drawings</p><div class="sec-line"></div></div>
+    <div id="gallery-drawings"></div>
+    <div class="empty" id="empty-drawings" style="display:none"><div class="empty-ico">✏️</div><p>No works yet</p></div>
+  </section>
+
+  <section id="mixed" style="display:none">
+    <div class="sec-head"><p class="sec-label">Mixed media</p><div class="sec-line"></div></div>
+    <div id="gallery-mixed"></div>
+    <div class="empty" id="empty-mixed" style="display:none"><div class="empty-ico">🎭</div><p>No works yet</p></div>
+  </section>
+
+  <section id="about" style="display:none">
+    <div class="sec-head"><p class="sec-label">Add your drawings</p><div class="sec-line"></div></div>
+    <div class="about">
+      <h2>Add your child's drawings</h2>
+      <p>Upload photos of drawings or draw directly in the browser. Your artworks are stored on this device.</p>
+      <div class="upload-sec">
+        <button class="upload-btn" onclick="openModal()">Upload a drawing +</button>
+      </div>
+      <p style="margin-top:2rem"><a href="https://app.netlify.com/drop" target="_blank" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent)">Deploy to Netlify →</a></p>
+    </div>
+  </section>
 </main>
 
-<footer class="site-footer"><p><span data-i18n="footer-text">Liam Gallery — All rights reserved</span> — <span id="footer-year"></span></p></footer>
+<footer class="footer">
+  <p>Liam Gallery — All rights reserved — <span id="year"></span></p>
+</footer>
 
-<div class="modal-backdrop" id="modal-backdrop" onclick="if(event.target===this)closeModal()"></div>
-<div class="modal" id="modal">
-  <div class="modal-head"><h2 class="modal-title" data-i18n="modal-title">Upload a drawing</h2><button class="modal-close" onclick="closeModal()">✕</button></div>
-  <div class="modal-tabs">
-    <button class="tab-btn active" onclick="switchTab('upload')" data-i18n="tab-upload">Upload</button>
-    <button class="tab-btn" onclick="switchTab('draw')" data-i18n="tab-draw">Draw</button>
-  </div>
-  <div id="tab-upload" class="tab-content active">
-    <div class="form-group">
-      <label class="form-label" for="file-input" data-i18n="lbl-image">Image file</label>
-      <div class="file-input-wrap">
-        <input type="file" id="file-input" accept="image/*"/>
-        <span class="file-label" data-i18n="file-text">Click or drag image here</span>
-        <span class="file-hint" id="file-name"></span>
+<!-- MODAL -->
+<div class="modal-bg" id="modal-bg" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <div class="modal-head">
+      <h2 class="modal-t">Upload a drawing</h2>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+
+    <!-- TABS -->
+    <div class="tabs">
+      <button class="tab-b active" onclick="switchTab('upload')">Upload</button>
+      <button class="tab-b" onclick="switchTab('draw')">Draw</button>
+    </div>
+
+    <!-- TAB: UPLOAD -->
+    <div id="tab-upload" class="tab active">
+      <div class="form-g">
+        <label class="form-l">Image file</label>
+        <div class="file-w">
+          <input type="file" id="file-input" accept="image/*">
+          <span class="file-l">Click or drag image</span>
+          <span class="file-h" id="file-name"></span>
+        </div>
       </div>
     </div>
-  </div>
-  <div id="tab-draw" class="tab-content">
-    <canvas id="canvas" width="400" height="300"></canvas>
-    <div class="canvas-tools">
-      <button class="canvas-tool" onclick="clearCanvas()" data-i18n="btn-clear">Clear</button>
-      <input type="color" id="colorPicker" class="color-picker" value="#1a1714" title="Color"/>
-      <button class="canvas-tool" onclick="changeSize(2)" data-i18n="btn-thin">Thin</button>
-      <button class="canvas-tool" onclick="changeSize(5)" data-i18n="btn-medium">Medium</button>
-      <button class="canvas-tool" onclick="changeSize(10)" data-i18n="btn-thick">Thick</button>
+
+    <!-- TAB: DRAW -->
+    <div id="tab-draw" class="tab">
+      <canvas id="canvas" width="400" height="300"></canvas>
+      <div class="canvas-btns">
+        <button class="canvas-btn" onclick="clearCanvas()">Clear</button>
+        <input type="color" id="colorPicker" class="color-in" value="#1a1714">
+        <button class="canvas-btn" onclick="changeSize(2)">Thin</button>
+        <button class="canvas-btn" onclick="changeSize(5)">Medium</button>
+        <button class="canvas-btn" onclick="changeSize(10)">Thick</button>
+      </div>
     </div>
+
+    <!-- FORM -->
+    <div class="form-g">
+      <label class="form-l">Title</label>
+      <input class="form-i" id="title" type="text">
+    </div>
+    <div class="form-g">
+      <label class="form-l">Description</label>
+      <textarea class="form-ta" id="desc" rows="3" style="resize:none"></textarea>
+    </div>
+    <div class="form-g">
+      <label class="form-l">Category</label>
+      <select class="form-s" id="cat">
+        <option value="paintings">Paintings</option>
+        <option value="drawings">Drawings</option>
+        <option value="mixed">Mixed media</option>
+      </select>
+    </div>
+
+    <button class="submit-b" onclick="submitArt()">Upload →</button>
   </div>
-  <div class="form-group"><label class="form-label" for="title-input" data-i18n="lbl-title">Title</label><input class="form-input" id="title-input" type="text"/></div>
-  <div class="form-group"><label class="form-label" for="desc-input" data-i18n="lbl-description">Description</label><textarea class="form-textarea" id="desc-input" rows="3" style="resize:none"></textarea></div>
-  <div class="form-group"><label class="form-label" for="cat-select" data-i18n="lbl-category">Category</label><select class="form-select" id="cat-select"><option value="paintings" data-i18n="cat-paintings">Paintings</option><option value="drawings" data-i18n="cat-drawings">Drawings</option><option value="mixed" data-i18n="cat-mixed">Mixed media</option></select></div>
-  <button class="submit-btn" onclick="submitDrawing()" data-i18n="btn-upload">Upload →</button>
 </div>
 
-<div class="lightbox" id="lightbox" onclick="if(event.target===this)closeLb()">
-  <button class="lb-close" onclick="closeLb()" data-i18n="lb-close">Close ✕</button>
-  <img id="lb-img" src="" alt=""/>
-  <div class="lb-cap"><div class="lb-title" id="lb-title"></div><div class="lb-meta" id="lb-meta"></div></div>
+<!-- LIGHTBOX -->
+<div class="lb" id="lb" onclick="if(event.target===this)closeLb()">
+  <button class="lb-close" onclick="closeLb()">Close ✕</button>
+  <img id="lb-img" src="" alt="">
+  <div class="lb-c">
+    <div class="lb-t" id="lb-t"></div>
+    <div class="lb-m" id="lb-m"></div>
+  </div>
 </div>
 
+<!-- TOAST -->
 <div class="toast" id="toast"></div>
 
 <script>
-const I18N={en:{eyebrow:'A personal collection','title-em':'Liam',tagline:'Original works by a young artist','nav-all':'All works','nav-paintings':'Paintings','nav-drawings':'Drawings','nav-mixed':'Mixed media','nav-about':'About','sec-featured':'Featured works','sec-paintings':'Paintings','sec-drawings':'Drawings','sec-mixed':'Mixed media','sec-about':'Add your own drawings','empty':'No works yet.','about-title':"Add your child's drawings",'about-p1':'Upload photos of drawings or draw directly in the browser. Your artworks are stored on this device.','upload-cta':'Upload a drawing +','deploy-link':'Deploy to Netlify →','footer-text':'Liam Gallery — All rights reserved','modal-title':'Upload a drawing','tab-upload':'Upload','tab-draw':'Draw','lbl-image':'Image file','file-text':'Click or drag image here','lbl-title':'Title','lbl-description':'Description','lbl-category':'Category','cat-paintings':'Paintings','cat-drawings':'Drawings','cat-mixed':'Mixed media','btn-upload':'Upload →','btn-clear':'Clear','btn-thin':'Thin','btn-medium':'Medium','btn-thick':'Thick','lb-close':'Close ✕','toast-added':'Drawing added!'},fr:{eyebrow:'Une collection personnelle','title-em':'Liam',tagline:"Œuvres originales d'un jeune artiste",'nav-all':'Toutes les œuvres','nav-paintings':'Peintures','nav-drawings':'Dessins','nav-mixed':'Techniques mixtes','nav-about':'À propos','sec-featured':'Œuvres à la une','sec-paintings':'Peintures','sec-drawings':'Dessins','sec-mixed':'Techniques mixtes','sec-about':'Ajouter vos dessins','empty':'Aucune œuvre.','about-title':'Ajouter les dessins de votre enfant','about-p1':'Téléversez des photos de dessins ou dessinez directement dans le navigateur. Vos œuvres sont stockées sur cet appareil.','upload-cta':'Téléverser un dessin +','deploy-link':'Déployer sur Netlify →','footer-text':'Galerie Liam — Tous droits réservés','modal-title':'Téléverser un dessin','tab-upload':'Charger','tab-draw':'Dessiner','lbl-image':'Fichier image','file-text':'Cliquez ou glissez une image','lbl-title':'Titre','lbl-description':'Description','lbl-category':'Catégorie','cat-paintings':'Peintures','cat-drawings':'Dessins','cat-mixed':'Techniques mixtes','btn-upload':'Téléverser →','btn-clear':'Effacer','btn-thin':'Fin','btn-medium':'Moyen','btn-thick':'Épais','lb-close':'Fermer ✕','toast-added':'Dessin ajouté !'},es:{eyebrow:'Una colección personal','title-em':'Liam',tagline:'Obras originales de un joven artista','nav-all':'Todas las obras','nav-paintings':'Pinturas','nav-drawings':'Dibujos','nav-mixed':'Técnica mixta','nav-about':'Acerca de','sec-featured':'Obras destacadas','sec-paintings':'Pinturas','sec-drawings':'Dibujos','sec-mixed':'Técnica mixta','sec-about':'Añadir tus dibujos','empty':'Sin obras.','about-title':'Añadir los dibujos de tu hijo','about-p1':'Carga fotos de dibujos o dibuja directamente en el navegador. Tus obras se almacenan en este dispositivo.','upload-cta':'Subir un dibujo +','deploy-link':'Publicar en Netlify →','footer-text':'Galería Liam — Todos los derechos reservados','modal-title':'Subir un dibujo','tab-upload':'Cargar','tab-draw':'Dibujar','lbl-image':'Archivo de imagen','file-text':'Haz clic o arrastra una imagen','lbl-title':'Título','lbl-description':'Descripción','lbl-category':'Categoría','cat-paintings':'Pinturas','cat-drawings':'Dibujos','cat-mixed':'Técnica mixta','btn-upload':'Subir →','btn-clear':'Borrar','btn-thin':'Fino','btn-medium':'Medio','btn-thick':'Grueso','lb-close':'Cerrar ✕','toast-added':'¡Dibujo añadido!'}};
-let lang=localStorage.getItem('glang')||'en';
-function t(k){return(I18N[lang]||I18N.en)[k]||k}
-function setLang(l){lang=l;localStorage.setItem('glang',l);document.documentElement.lang=l;document.querySelectorAll('[data-i18n]').forEach(el=>{el.textContent=t(el.dataset.i18n)});['en','fr','es'].forEach(x=>document.getElementById('btn-'+x).classList.toggle('active',x===l));updateNav()}
+// ===== DATA =====
+function load() { try { return JSON.parse(localStorage.getItem('gal') || '[]'); } catch(e) { return []; } }
+function save(a) { try { localStorage.setItem('gal', JSON.stringify(a)); } catch(e) { toast('Storage full'); } }
 
-let ctx,isDrawing=false,brushSize=5;const canvas=document.getElementById('canvas');
-if(canvas){ctx=canvas.getContext('2d');canvas.addEventListener('mousedown',e=>{isDrawing=true;ctx.beginPath();const rect=canvas.getBoundingClientRect();ctx.moveTo(e.clientX-rect.left,e.clientY-rect.top)});canvas.addEventListener('mouseup',()=>isDrawing=false);canvas.addEventListener('mouseout',()=>isDrawing=false);canvas.addEventListener('mousemove',draw);}
-function draw(e){if(!isDrawing||!ctx)return;const rect=canvas.getBoundingClientRect();ctx.strokeStyle=document.getElementById('colorPicker').value;ctx.lineWidth=brushSize;ctx.lineCap='round';ctx.lineJoin='round';ctx.lineTo(e.clientX-rect.left,e.clientY-rect.top);ctx.stroke()}
-function clearCanvas(){if(ctx)ctx.clearRect(0,0,canvas.width,canvas.height)}
-function changeSize(size){brushSize=size}
-function switchTab(tab){document.querySelectorAll('.tab-content').forEach(el=>el.classList.remove('active'));document.querySelectorAll('.tab-btn').forEach(el=>el.classList.remove('active'));document.getElementById('tab-'+tab).classList.add('active');event.target.classList.add('active')}
+// ===== CANVAS =====
+let ctx, isDrawing = false, brushSize = 5;
+const canvas = document.getElementById('canvas');
 
-function load(){try{return JSON.parse(localStorage.getItem('gal')||'[]')}catch(e){return[]}}
-function save(a){try{localStorage.setItem('gal',JSON.stringify(a))}catch(e){toast('Storage full')}}
-function renderGallery(){const all=load();renderSection('all',all);renderSection('paintings',all.filter(a=>a.cat==='paintings'));renderSection('drawings',all.filter(a=>a.cat==='drawings'));renderSection('mixed',all.filter(a=>a.cat==='mixed'))}
-function renderSection(id,items){const root=document.getElementById('gallery-'+id);if(!root)return;root.innerHTML='';const empty=document.getElementById('empty-'+id);if(items.length===0){if(empty)empty.style.display='block';return}if(empty)empty.style.display='none';const featured=items.slice(0,2);const thumbs=items.slice(2);if(featured.length&&id==='all'){const fg=document.createElement('div');fg.className='featured-grid';featured.forEach((art,i)=>{fg.appendChild(makeTile(art,items,i,i===0?'featured-1':'featured-2'))});root.appendChild(fg)}const ag=document.createElement('div');ag.className='art-grid';const grid_items=(id==='all'?thumbs:items);grid_items.forEach((art,i)=>{const w=document.createElement('div');w.className='art-item';w.appendChild(makeTile(art,items,id==='all'?i+featured.length:i,'thumb'));ag.appendChild(w)});if(grid_items.length>0)root.appendChild(ag)}
-function makeTile(art,items,idx,cls){const div=document.createElement('div');div.className='tile '+cls;div.innerHTML=`<img src="${art.src}" alt="${art.title||''}" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 200%22%3E%3Crect fill=%22%23ece8e0%22 width=%22200%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dy=%22.3em%22 font-size=%2214%22 fill=%22%239a958f%22%3EImage not found%3C/text%3E%3C/svg%3E'"/><div class="ov"><p class="ov-title">${art.title||''}</p><p class="ov-meta">${art.desc||''}</p></div>`;div.addEventListener('click',()=>openLb(items,idx));return div}
-function updateNav(){const h=window.location.hash.slice(1)||'all';const secs=['all','paintings','drawings','mixed','about'];secs.forEach(s=>{const el=document.getElementById(s);if(el)el.style.display=s===h?'block':'none'});document.querySelectorAll('.nav-link').forEach(a=>{const href=a.getAttribute('href').slice(1);a.classList.toggle('active',href===h)})}
-window.addEventListener('hashchange',updateNav);
-function openModal(){document.getElementById('modal-backdrop').classList.add('open')}
-function closeModal(){document.getElementById('modal-backdrop').classList.remove('open')}
+if (canvas) {
+  ctx = canvas.getContext('2d');
+  
+  canvas.addEventListener('mousedown', (e) => {
+    isDrawing = true;
+    ctx.beginPath();
+    const rect = canvas.getBoundingClientRect();
+    ctx.moveTo(e.clientX - rect.left, e.clientY - rect.top);
+  });
+  
+  canvas.addEventListener('mousemove', (e) => {
+    if (!isDrawing) return;
+    const rect = canvas.getBoundingClientRect();
+    ctx.strokeStyle = document.getElementById('colorPicker').value;
+    ctx.lineWidth = brushSize;
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
+    ctx.lineTo(e.clientX - rect.left, e.clientY - rect.top);
+    ctx.stroke();
+  });
+  
+  canvas.addEventListener('mouseup', () => { isDrawing = false; });
+  canvas.addEventListener('mouseout', () => { isDrawing = false; });
+}
 
-const fi=document.getElementById('file-input');fi.addEventListener('change',()=>{const f=fi.files[0];if(f)document.getElementById('file-name').textContent=f.name});
+function clearCanvas() { if (ctx) ctx.clearRect(0, 0, canvas.width, canvas.height); }
+function changeSize(sz) { brushSize = sz; }
 
-function submitDrawing(){const activeTab=document.querySelector('.tab-content.active').id;if(activeTab==='tab-upload'){const f=fi.files[0];if(!f)return alert('Please select an image');const r=new FileReader();r.onload=ev=>{saveDrawing(ev.target.result)};r.readAsDataURL(f)}else{const canvasData=canvas.toDataURL('image/png');saveDrawing(canvasData)}}
-function saveDrawing(src){const art={src,title:document.getElementById('title-input').value||'Untitled',desc:document.getElementById('desc-input').value,cat:document.getElementById('cat-select').value};const arr=load();arr.unshift(art);save(arr);toast(t('toast-added'));document.getElementById('title-input').value='';document.getElementById('desc-input').value='';fi.value='';document.getElementById('file-name').textContent='';if(ctx)clearCanvas();closeModal();renderGallery();document.location.hash='#all'}
+// ===== FILE INPUT =====
+const fileInput = document.getElementById('file-input');
+fileInput.addEventListener('change', () => {
+  if (fileInput.files[0]) {
+    document.getElementById('file-name').textContent = fileInput.files[0].name;
+  }
+});
 
-function openLb(items,idx){document.getElementById('lb-img').src=items[idx].src;document.getElementById('lb-title').textContent=items[idx].title||'';document.getElementById('lb-meta').textContent=items[idx].desc||'';document.getElementById('lightbox').classList.add('open');document.body.style.overflow='hidden'}
-function closeLb(){document.getElementById('lightbox').classList.remove('open');document.body.style.overflow=''}
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLb()});
+// ===== MODAL =====
+function openModal() { document.getElementById('modal-bg').classList.add('open'); }
+function closeModal() { document.getElementById('modal-bg').classList.remove('open'); }
 
-let toastTmr;function toast(msg){const el=document.getElementById('toast');el.textContent=msg;el.classList.add('show');clearTimeout(toastTmr);toastTmr=setTimeout(()=>el.classList.remove('show'),2500)}
+function switchTab(tab) {
+  document.querySelectorAll('.tab').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.tab-b').forEach(el => el.classList.remove('active'));
+  document.getElementById('tab-' + tab).classList.add('active');
+  event.target.classList.add('active');
+}
 
-document.getElementById('footer-year').textContent=new Date().getFullYear();
-setLang(lang);
+// ===== SUBMIT =====
+function submitArt() {
+  const activeTab = document.querySelector('.tab.active').id;
+  let src = null;
+
+  if (activeTab === 'tab-upload') {
+    const file = fileInput.files[0];
+    if (!file) {
+      alert('Please select an image');
+      return;
+    }
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      saveArt(e.target.result);
+    };
+    reader.readAsDataURL(file);
+  } else {
+    src = canvas.toDataURL('image/png');
+    saveArt(src);
+  }
+}
+
+function saveArt(src) {
+  const art = {
+    src: src,
+    title: document.getElementById('title').value || 'Untitled',
+    desc: document.getElementById('desc').value,
+    cat: document.getElementById('cat').value
+  };
+  
+  const arr = load();
+  arr.unshift(art);
+  save(arr);
+  
+  toast('Drawing added!');
+  
+  document.getElementById('title').value = '';
+  document.getElementById('desc').value = '';
+  fileInput.value = '';
+  document.getElementById('file-name').textContent = '';
+  if (ctx) clearCanvas();
+  
+  closeModal();
+  renderGallery();
+  document.location.hash = '#all';
+}
+
+// ===== GALLERY =====
+function renderGallery() {
+  const all = load();
+  render('all', all);
+  render('paintings', all.filter(a => a.cat === 'paintings'));
+  render('drawings', all.filter(a => a.cat === 'drawings'));
+  render('mixed', all.filter(a => a.cat === 'mixed'));
+}
+
+function render(id, items) {
+  const root = document.getElementById('gallery-' + id);
+  const empty = document.getElementById('empty-' + id);
+  
+  if (!root) return;
+  root.innerHTML = '';
+  
+  if (items.length === 0) {
+    if (empty) empty.style.display = 'block';
+    return;
+  }
+  if (empty) empty.style.display = 'none';
+  
+  const featured = items.slice(0, 2);
+  const thumbs = items.slice(2);
+  
+  if (featured.length && id === 'all') {
+    const fg = document.createElement('div');
+    fg.className = 'featured';
+    featured.forEach((art, i) => {
+      fg.appendChild(makeTile(art, items, i, i === 0 ? 'f1' : 'f2'));
+    });
+    root.appendChild(fg);
+  }
+  
+  const ag = document.createElement('div');
+  ag.className = 'gallery';
+  const grid_items = id === 'all' ? thumbs : items;
+  grid_items.forEach((art, i) => {
+    const w = document.createElement('div');
+    w.className = 'gitem';
+    w.appendChild(makeTile(art, items, id === 'all' ? i + featured.length : i, 't'));
+    ag.appendChild(w);
+  });
+  if (grid_items.length > 0) root.appendChild(ag);
+}
+
+function makeTile(art, items, idx, cls) {
+  const div = document.createElement('div');
+  div.className = 'tile ' + cls;
+  div.innerHTML = `<img src="${art.src}" alt="${art.title}" loading="lazy" onerror="this.style.display='none'"><div class="ov"><p class="ov-t">${art.title}</p><p class="ov-m">${art.desc}</p></div>`;
+  div.addEventListener('click', () => openLb(items, idx));
+  return div;
+}
+
+// ===== LIGHTBOX =====
+function openLb(items, idx) {
+  document.getElementById('lb-img').src = items[idx].src;
+  document.getElementById('lb-t').textContent = items[idx].title;
+  document.getElementById('lb-m').textContent = items[idx].desc;
+  document.getElementById('lb').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLb() {
+  document.getElementById('lb').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeLb();
+});
+
+// ===== NAV =====
+function updateNav() {
+  const h = window.location.hash.slice(1) || 'all';
+  ['all', 'paintings', 'drawings', 'mixed', 'about'].forEach(s => {
+    const el = document.getElementById(s);
+    if (el) el.style.display = s === h ? 'block' : 'none';
+  });
+  document.querySelectorAll('.nav-link').forEach(a => {
+    const href = a.getAttribute('href').slice(1);
+    a.classList.toggle('active', href === h);
+  });
+}
+window.addEventListener('hashchange', updateNav);
+
+// ===== TOAST =====
+let toastTimer;
+function toast(msg) {
+  const el = document.getElementById('toast');
+  el.textContent = msg;
+  el.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => el.classList.remove('show'), 2500);
+}
+
+// ===== LANG =====
+function setLang(l) {
+  localStorage.setItem('lang', l);
+  ['en', 'fr', 'es'].forEach(x => document.getElementById('btn-' + x).classList.toggle('active', x === l));
+}
+
+// ===== INIT =====
+document.getElementById('year').textContent = new Date().getFullYear();
 updateNav();
 renderGallery();
 </script>
+
 </body>
 </html>
