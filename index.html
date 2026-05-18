@@ -66,13 +66,13 @@
     /* GALLERY */
     .featured { display: grid; grid-template-columns: 2fr 1fr; gap: 3px; padding: 0 1.5rem; }
     .gallery { columns: 3 200px; column-gap: 3px; padding: 3px 1.5rem 0; }
-    .gitem { break-inside: avoid; margin-bottom: 3px; }
-    .tile { position: relative; overflow: hidden; background: var(--wall); cursor: pointer; }
+    .gitem { break-inside: avoid; margin-bottom: 3px; min-height: 200px; }
+    .tile { position: relative; overflow: hidden; background: var(--wall); cursor: pointer; min-height: 200px; }
     .tile img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s; }
     .tile:hover img { transform: scale(1.04); }
     .tile:hover .ov { opacity: 1; }
-    .tile.f1, .tile.f2 { height: 380px; }
-    .tile.t { height: 220px; }
+    .tile.f1, .tile.f2 { height: 380px; min-height: 380px; }
+    .tile.t { height: 220px; min-height: 220px; }
     .ov { position: absolute; inset: 0; background: rgba(26, 23, 20, 0.68); opacity: 0; transition: opacity 0.3s; display: flex; flex-direction: column; justify-content: flex-end; padding: 1.2rem; }
     .ov-t { font-size: 1.15rem; font-style: italic; font-weight: 300; color: #f5f3ef; margin-bottom: 0.2rem; }
     .ov-m { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); }
@@ -204,7 +204,19 @@
     .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
     @media(max-width:900px) { .featured { grid-template-columns: 1fr; } .gallery { columns: 2; } }
-    @media(max-width:600px) { .gallery { columns: 1; } .modal { width: 95%; padding: 1.5rem; } }
+    @media(max-width:600px) {
+      .gallery { columns: 1; }
+      .modal { width: 95%; padding: 1.5rem; }
+      .tile.f1, .tile.f2 { height: 250px; }
+      .tile.t { height: 200px; }
+      .featured { grid-template-columns: 1fr; gap: 3px; }
+    }
+    @media(max-width:480px) {
+      .site-header { padding: 2rem 1rem 1.5rem; }
+      .header-title { font-size: 2rem; }
+      .tile.f1, .tile.f2 { height: 200px; }
+      .tile.t { height: 150px; }
+    }
   </style>
 </head>
 <body>
