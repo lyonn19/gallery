@@ -24,7 +24,6 @@
       color: var(--dark);
       line-height: 1.6;
     }
-    /* HEADER */
     .site-header {
       text-align: center;
       padding: 3rem 1.5rem 2rem;
@@ -37,7 +36,6 @@
     .header-tagline { margin-top: 1rem; font-size: 1.05rem; font-style: italic; color: var(--mid); }
     .header-year { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.2em; color: var(--accent); margin-top: 1.25rem; }
 
-    /* NAV */
     .site-nav {
       display: flex;
       flex-wrap: wrap;
@@ -58,28 +56,25 @@
     .lang-btn.active { color: var(--dark); border-bottom-color: var(--accent); }
     .lang-sep { font-size: 9px; color: var(--border); }
 
-    /* SECTIONS */
     .sec-head { text-align: center; padding: 3rem 1rem 0; }
     .sec-label { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--light); }
     .sec-line { width: 40px; height: 1px; background: var(--accent); margin: 0.6rem auto 2.5rem; }
 
-    /* GALLERY */
     .featured { display: grid; grid-template-columns: 2fr 1fr; gap: 3px; padding: 0 1.5rem; }
     .gallery { columns: 3 200px; column-gap: 3px; padding: 3px 1.5rem 0; }
-    .gitem { break-inside: avoid; margin-bottom: 3px; min-height: 200px; }
-    .tile { position: relative; overflow: hidden; background: var(--wall); cursor: pointer; min-height: 200px; }
+    .gitem { break-inside: avoid; margin-bottom: 3px; min-height: 200px; width: 100%; }
+    .tile { position: relative; overflow: hidden; background: var(--wall); cursor: pointer; width: 100%; display: block; }
     .tile img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s; }
     .tile:hover img { transform: scale(1.04); }
     .tile:hover .ov { opacity: 1; }
-    .tile.f1, .tile.f2 { height: 380px; min-height: 380px; }
-    .tile.t { height: 220px; min-height: 220px; }
+    .tile.f1, .tile.f2 { height: 380px; min-height: 380px; width: 100%; }
+    .tile.t { height: 220px; min-height: 220px; width: 100%; }
     .ov { position: absolute; inset: 0; background: rgba(26, 23, 20, 0.68); opacity: 0; transition: opacity 0.3s; display: flex; flex-direction: column; justify-content: flex-end; padding: 1.2rem; }
     .ov-t { font-size: 1.15rem; font-style: italic; font-weight: 300; color: #f5f3ef; margin-bottom: 0.2rem; }
     .ov-m { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); }
     .empty { text-align: center; padding: 4rem 2rem; color: var(--light); }
     .empty-ico { font-size: 2.5rem; opacity: 0.4; margin-bottom: 0.8rem; }
 
-    /* ABOUT */
     .about { max-width: 700px; margin: 0 auto; padding: 0 1.5rem 3rem; }
     .about h2 { font-size: 1.5rem; font-weight: 300; font-style: italic; margin-bottom: 1rem; text-align: center; }
     .about p { font-size: 1rem; margin-bottom: 1rem; color: var(--mid); }
@@ -87,7 +82,6 @@
     .upload-btn { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; background: none; border: 1px solid var(--accent); color: var(--accent); padding: 0.6rem 1.5rem; cursor: pointer; border-radius: 4px; transition: all 0.2s; }
     .upload-btn:hover { background: var(--accent); color: #fff; }
 
-    /* MODAL */
     .modal-bg { position: fixed; inset: 0; background: rgba(26, 23, 20, 0.5); z-index: 500; display: none; align-items: center; justify-content: center; }
     .modal-bg.open { display: flex; }
     .modal { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 2rem; max-width: 500px; width: 90%; max-height: 85vh; overflow-y: auto; }
@@ -95,28 +89,24 @@
     .modal-t { font-size: 1.3rem; font-weight: 300; font-style: italic; }
     .modal-close { background: none; border: none; font-size: 1.2rem; color: var(--light); cursor: pointer; padding: 4px; }
 
-    /* TABS */
     .tabs { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; border-bottom: 1px solid var(--border); padding-bottom: 0.8rem; }
     .tab-b { background: none; border: none; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--light); cursor: pointer; padding-bottom: 3px; border-bottom: 2px solid transparent; transition: all 0.2s; }
     .tab-b.active { color: var(--dark); border-bottom-color: var(--accent); }
     .tab { display: none; }
     .tab.active { display: block; }
 
-    /* CANVAS */
     #canvas { border: 1.5px solid var(--border); border-radius: 4px; cursor: crosshair; display: block; margin-bottom: 1rem; background: #fff; width: 100%; max-height: 300px; }
     .canvas-btns { display: flex; gap: 0.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
     .canvas-btn { padding: 0.4rem 0.8rem; border: 1px solid var(--border); background: #fff; border-radius: 4px; cursor: pointer; font-family: 'DM Mono', monospace; font-size: 9px; text-transform: uppercase; transition: all 0.2s; }
     .canvas-btn:hover { border-color: var(--accent); color: var(--accent); }
     .color-in { width: 40px; height: 35px; border: 1px solid var(--border); border-radius: 4px; cursor: pointer; }
 
-    /* FORM */
     .form-g { margin-bottom: 1.2rem; }
     .form-l { display: block; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--mid); margin-bottom: 0.5rem; }
     .form-i, .form-s, .form-ta { width: 100%; border: 1px solid var(--border); border-radius: 4px; padding: 0.6rem 0.8rem; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1rem; color: var(--dark); background: #fff; transition: border-color 0.2s; }
     .form-i:focus, .form-s:focus, .form-ta:focus { outline: none; border-color: var(--accent); }
     .form-s { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='7'%3E%3Cpath d='M1 1l4.5 4.5L10 1' stroke='%239a958f' stroke-width='1.4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 0.75rem center; padding-right: 2rem; }
 
-    /* FILE */
     .file-w { position: relative; border: 2px dashed var(--border); border-radius: 4px; padding: 1.5rem; text-align: center; cursor: pointer; transition: all 0.2s; }
     .file-w:hover { border-color: var(--accent); background: rgba(200, 169, 110, 0.04); }
     .file-w input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
@@ -125,8 +115,8 @@
 
     .submit-b { width: 100%; padding: 0.75rem; border: 1px solid var(--accent); background: transparent; font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent); cursor: pointer; border-radius: 4px; transition: all 0.2s; margin-top: 0.5rem; }
     .submit-b:hover { background: var(--accent); color: #fff; }
+    .submit-b:disabled { opacity: 0.5; cursor: not-allowed; }
 
-    /* LIGHTBOX */
     .lb {
       position: fixed;
       inset: 0;
@@ -140,39 +130,11 @@
       opacity: 0;
       transition: opacity 0.3s;
     }
-    .lb.open {
-      display: flex;
-      opacity: 1;
-    }
-    #lb-img {
-      max-width: 80vw;
-      max-height: 65vh;
-      object-fit: contain;
-      display: block;
-      border-radius: 4px;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-    }
-    .lb-c {
-      text-align: center;
-      margin-top: 1.5rem;
-      color: #f5f3ef;
-      max-width: 80vw;
-    }
-    .lb-t {
-      font-size: 1.4rem;
-      font-style: italic;
-      font-weight: 300;
-      margin-bottom: 0.4rem;
-      letter-spacing: 0.03em;
-    }
-    .lb-m {
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--accent);
-      opacity: 0.9;
-    }
+    .lb.open { display: flex; opacity: 1; }
+    #lb-img { max-width: 80vw; max-height: 65vh; object-fit: contain; display: block; border-radius: 4px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3); }
+    .lb-c { text-align: center; margin-top: 1.5rem; color: #f5f3ef; max-width: 80vw; }
+    .lb-t { font-size: 1.4rem; font-style: italic; font-weight: 300; margin-bottom: 0.4rem; letter-spacing: 0.03em; }
+    .lb-m { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); opacity: 0.9; }
     .lb-close {
       position: fixed;
       top: 1.5rem;
@@ -189,19 +151,17 @@
       z-index: 601;
       backdrop-filter: blur(4px);
     }
-    .lb-close:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-      background: rgba(26, 23, 20, 0.95);
-    }
+    .lb-close:hover { border-color: var(--accent); color: var(--accent); background: rgba(26, 23, 20, 0.95); }
 
-    /* FOOTER */
     .footer { text-align: center; padding: 2.5rem 1.5rem 1.5rem; border-top: 1px solid var(--border); margin-top: 3rem; }
     .footer p { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--light); }
 
-    /* TOAST */
     .toast { position: fixed; bottom: 1.5rem; left: 50%; transform: translateX(-50%) translateY(40px); background: var(--dark); color: #f5f3ef; padding: 0.5rem 1.2rem; border-radius: 20px; font-family: 'DM Mono', monospace; font-size: 10px; opacity: 0; transition: all 0.3s; pointer-events: none; z-index: 9999; }
     .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+    .sync-badge { position: fixed; bottom: 2rem; left: 1.5rem; background: rgba(200, 169, 110, 0.9); color: #1a1714; padding: 0.4rem 0.8rem; border-radius: 20px; font-family: 'DM Mono', monospace; font-size: 9px; z-index: 100; }
+    .sync-badge.synced { color: #5b8a5c; }
+    .sync-badge.error { color: #e07b5a; }
 
     @media(max-width:900px) { .featured { grid-template-columns: 1fr; } .gallery { columns: 2; } }
     @media(max-width:600px) {
@@ -275,7 +235,7 @@
     <div class="sec-head"><p class="sec-label" data-i18n="sec-about">Add your drawings</p><div class="sec-line"></div></div>
     <div class="about">
       <h2 data-i18n="about-h2">Add your child's drawings</h2>
-      <p data-i18n="about-p1">Upload photos of drawings or draw directly in the browser. Your artworks are stored on this device.</p>
+      <p data-i18n="about-p1">Upload photos of drawings or draw directly in the browser. Your artworks are synced across all your devices via Firebase Cloud!</p>
       <div class="upload-sec">
         <button class="upload-btn" onclick="openModal()" data-i18n="upload-btn">Upload a drawing +</button>
       </div>
@@ -296,13 +256,11 @@
       <button class="modal-close" onclick="closeModal()">✕</button>
     </div>
 
-    <!-- TABS -->
     <div class="tabs">
       <button class="tab-b active" onclick="switchTab('upload')" data-i18n="tab-upload">Upload</button>
       <button class="tab-b" onclick="switchTab('draw')" data-i18n="tab-draw">Draw</button>
     </div>
 
-    <!-- TAB: UPLOAD -->
     <div id="tab-upload" class="tab active">
       <div class="form-g">
         <label class="form-l" data-i18n="file-label">Image file</label>
@@ -314,7 +272,6 @@
       </div>
     </div>
 
-    <!-- TAB: DRAW -->
     <div id="tab-draw" class="tab">
       <canvas id="canvas" width="400" height="300"></canvas>
       <div class="canvas-btns">
@@ -326,7 +283,6 @@
       </div>
     </div>
 
-    <!-- FORM -->
     <div class="form-g">
       <label class="form-l" data-i18n="title-label">Title</label>
       <input class="form-i" id="title" type="text">
@@ -344,7 +300,7 @@
       </select>
     </div>
 
-    <button class="submit-b" onclick="submitArt()" data-i18n="submit">Upload →</button>
+    <button class="submit-b" id="submit-btn" onclick="submitArt()" data-i18n="submit">Upload →</button>
   </div>
 </div>
 
@@ -361,7 +317,39 @@
 <!-- TOAST -->
 <div class="toast" id="toast"></div>
 
+<!-- SYNC BADGE -->
+<div class="sync-badge" id="sync-badge">📡 Syncing...</div>
+
+<!-- FIREBASE -->
+<script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js"></script>
+
 <script>
+// ===== FIREBASE CONFIG =====
+// PASTE YOUR FIREBASE CONFIG HERE
+const firebaseConfig = {
+  apiKey: "AIzaSyAZ00O4pBxNduyuAogr3JbDjd_5wTus2Ec",
+  authDomain: "flutter-ai-gallery.firebaseapp.com",
+  projectId: "flutter-ai-gallery",
+  storageBucket: "flutter-ai-gallery.firebasestorage.app",
+  messagingSenderId: "652974532512",
+  appId: "1:652974532512:web:c71bc973f64b7969fe66c5"
+};
+
+// Initialize Firebase
+let db = null;
+let isFirebaseReady = false;
+
+try {
+  firebase.initializeApp(firebaseConfig);
+  db = firebase.firestore();
+  isFirebaseReady = true;
+  updateSyncBadge('ready');
+} catch (e) {
+  console.warn('Firebase not configured. Using local storage only.', e);
+  updateSyncBadge('error', 'Configure Firebase');
+}
+
 // ===== LANGUAGE / i18n =====
 const I18N = {
   en: {
@@ -380,7 +368,7 @@ const I18N = {
     'sec-mixed': 'Mixed media',
     'sec-about': 'Add your drawings',
     'about-h2': "Add your child's drawings",
-    'about-p1': 'Upload photos of drawings or draw directly in the browser. Your artworks are stored on this device.',
+    'about-p1': 'Upload photos of drawings or draw directly in the browser. Your artworks are synced across all your devices via Firebase Cloud!',
     'deploy': 'Deploy to Netlify →',
     'footer': 'Liam Gallery — All rights reserved',
     'empty': 'No works yet',
@@ -408,7 +396,7 @@ const I18N = {
     'eyebrow': 'Une collection personnelle',
     'title': 'Liam',
     'tagline': "Œuvres originales d'un jeune artiste",
-    'year': 'Est. 2025 — Continuu',
+    'year': 'Est. 2025 — Continu',
     'nav-all': 'Toutes les œuvres',
     'nav-paintings': 'Peintures',
     'nav-drawings': 'Dessins',
@@ -420,7 +408,7 @@ const I18N = {
     'sec-mixed': 'Techniques mixtes',
     'sec-about': 'Ajouter vos dessins',
     'about-h2': 'Ajouter les dessins de votre enfant',
-    'about-p1': 'Téléversez des photos de dessins ou dessinez directement dans le navigateur. Vos œuvres sont stockées sur cet appareil.',
+    'about-p1': 'Téléversez des photos de dessins ou dessinez directement dans le navigateur. Vos œuvres sont synchronisées sur tous vos appareils via Firebase Cloud !',
     'deploy': 'Déployer sur Netlify →',
     'footer': 'Galerie Liam — Tous droits réservés',
     'empty': 'Aucune œuvre',
@@ -460,7 +448,7 @@ const I18N = {
     'sec-mixed': 'Técnica mixta',
     'sec-about': 'Añadir tus dibujos',
     'about-h2': 'Añadir los dibujos de tu hijo',
-    'about-p1': 'Carga fotos de dibujos o dibuja directamente en el navegador. Tus obras se almacenan en este dispositivo.',
+    'about-p1': 'Carga fotos de dibujos o dibuja directamente en el navegador. ¡Tus obras se sincronizan en todos tus dispositivos a través de Firebase Cloud!',
     'deploy': 'Publicar en Netlify →',
     'footer': 'Galería Liam — Todos los derechos reservados',
     'empty': 'Sin obras',
@@ -497,22 +485,74 @@ function setLang(l) {
   localStorage.setItem('lang', l);
   document.documentElement.lang = l;
   
-  // Update all elements with data-i18n attribute
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.dataset.i18n;
     const text = t(key);
     el.textContent = text;
   });
   
-  // Update button active state
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.classList.toggle('active', btn.id === 'btn-' + l);
   });
 }
 
-// ===== DATA =====
-function load() { try { return JSON.parse(localStorage.getItem('gal') || '[]'); } catch(e) { return []; } }
-function save(a) { try { localStorage.setItem('gal', JSON.stringify(a)); } catch(e) { toast('Storage full'); } }
+function updateSyncBadge(status, text = '') {
+  const badge = document.getElementById('sync-badge');
+  badge.className = 'sync-badge';
+  if (status === 'synced') {
+    badge.classList.add('synced');
+    badge.textContent = '✓ Synced';
+  } else if (status === 'syncing') {
+    badge.textContent = '📡 Syncing...';
+  } else if (status === 'error') {
+    badge.classList.add('error');
+    badge.textContent = '⚠ ' + (text || 'Offline');
+  }
+}
+
+// ===== DATA - FIREBASE + LOCAL FALLBACK =====
+async function loadFromDB() {
+  if (!isFirebaseReady) {
+    return JSON.parse(localStorage.getItem('gal') || '[]');
+  }
+  
+  try {
+    updateSyncBadge('syncing');
+    const docSnap = await db.collection('galleries').doc('default').get();
+    
+    if (docSnap.exists) {
+      const data = docSnap.data().drawings || [];
+      localStorage.setItem('gal', JSON.stringify(data));
+      updateSyncBadge('synced');
+      return data;
+    } else {
+      updateSyncBadge('synced');
+      return [];
+    }
+  } catch (e) {
+    console.error('Firebase load error:', e);
+    updateSyncBadge('error', 'Load failed');
+    return JSON.parse(localStorage.getItem('gal') || '[]');
+  }
+}
+
+async function saveToDB(drawings) {
+  localStorage.setItem('gal', JSON.stringify(drawings));
+  
+  if (!isFirebaseReady) {
+    updateSyncBadge('error', 'Firebase not configured');
+    return;
+  }
+  
+  try {
+    updateSyncBadge('syncing');
+    await db.collection('galleries').doc('default').set({drawings: drawings});
+    updateSyncBadge('synced');
+  } catch (e) {
+    console.error('Firebase save error:', e);
+    updateSyncBadge('error', 'Save failed');
+  }
+}
 
 // ===== CANVAS =====
 let ctx, isDrawing = false, brushSize = 5;
@@ -566,14 +606,18 @@ function switchTab(tab) {
 }
 
 // ===== SUBMIT =====
-function submitArt() {
+async function submitArt() {
+  const submitBtn = document.getElementById('submit-btn');
   const activeTab = document.querySelector('.tab.active').id;
   let src = null;
+
+  submitBtn.disabled = true;
 
   if (activeTab === 'tab-upload') {
     const file = fileInput.files[0];
     if (!file) {
       alert('Please select an image');
+      submitBtn.disabled = false;
       return;
     }
     const reader = new FileReader();
@@ -587,7 +631,8 @@ function submitArt() {
   }
 }
 
-function saveArt(src) {
+async function saveArt(src) {
+  const submitBtn = document.getElementById('submit-btn');
   const art = {
     src: src,
     title: document.getElementById('title').value || 'Untitled',
@@ -595,9 +640,9 @@ function saveArt(src) {
     cat: document.getElementById('cat').value
   };
   
-  const arr = load();
+  const arr = await loadFromDB();
   arr.unshift(art);
-  save(arr);
+  await saveToDB(arr);
   
   toast(t('toast'));
   
@@ -607,14 +652,15 @@ function saveArt(src) {
   document.getElementById('file-name').textContent = '';
   if (ctx) clearCanvas();
   
+  submitBtn.disabled = false;
   closeModal();
   renderGallery();
   document.location.hash = '#all';
 }
 
 // ===== GALLERY =====
-function renderGallery() {
-  const all = load();
+async function renderGallery() {
+  const all = await loadFromDB();
   render('all', all);
   render('paintings', all.filter(a => a.cat === 'paintings'));
   render('drawings', all.filter(a => a.cat === 'drawings'));
