@@ -211,19 +211,19 @@
 
 <header class="site-header">
   <div class="header-top"></div>
-  <p class="header-eyebrow">A personal collection</p>
-  <h1 class="header-title"><em>Liam</em> Gallery</h1>
-  <p class="header-tagline">Original works by a young artist</p>
-  <p class="header-year">Est. 2025 — Ongoing</p>
+  <p class="header-eyebrow" data-i18n="eyebrow">A personal collection</p>
+  <h1 class="header-title"><em data-i18n="title">Liam</em> Gallery</h1>
+  <p class="header-tagline" data-i18n="tagline">Original works by a young artist</p>
+  <p class="header-year" data-i18n="year">Est. 2025 — Ongoing</p>
 </header>
 
 <nav class="site-nav">
   <div class="nav-links">
-    <a href="#all" class="nav-link active">All works</a>
-    <a href="#paintings" class="nav-link">Paintings</a>
-    <a href="#drawings" class="nav-link">Drawings</a>
-    <a href="#mixed" class="nav-link">Mixed media</a>
-    <a href="#about" class="nav-link">About</a>
+    <a href="#all" class="nav-link active" data-i18n="nav-all">All works</a>
+    <a href="#paintings" class="nav-link" data-i18n="nav-paintings">Paintings</a>
+    <a href="#drawings" class="nav-link" data-i18n="nav-drawings">Drawings</a>
+    <a href="#mixed" class="nav-link" data-i18n="nav-mixed">Mixed media</a>
+    <a href="#about" class="nav-link" data-i18n="nav-about">About</a>
   </div>
   <div class="lang-sw">
     <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
@@ -236,67 +236,67 @@
 
 <main>
   <section id="all">
-    <div class="sec-head"><p class="sec-label">Featured works</p><div class="sec-line"></div></div>
+    <div class="sec-head"><p class="sec-label" data-i18n="sec-featured">Featured works</p><div class="sec-line"></div></div>
     <div id="gallery-root"></div>
-    <div class="empty" id="empty-all" style="display:none"><div class="empty-ico">🖼</div><p>No works yet</p></div>
+    <div class="empty" id="empty-all" style="display:none"><div class="empty-ico">🖼</div><p data-i18n="empty">No works yet</p></div>
   </section>
 
   <section id="paintings" style="display:none">
-    <div class="sec-head"><p class="sec-label">Paintings</p><div class="sec-line"></div></div>
+    <div class="sec-head"><p class="sec-label" data-i18n="sec-paintings">Paintings</p><div class="sec-line"></div></div>
     <div id="gallery-paintings"></div>
-    <div class="empty" id="empty-paintings" style="display:none"><div class="empty-ico">🎨</div><p>No works yet</p></div>
+    <div class="empty" id="empty-paintings" style="display:none"><div class="empty-ico">🎨</div><p data-i18n="empty">No works yet</p></div>
   </section>
 
   <section id="drawings" style="display:none">
-    <div class="sec-head"><p class="sec-label">Drawings</p><div class="sec-line"></div></div>
+    <div class="sec-head"><p class="sec-label" data-i18n="sec-drawings">Drawings</p><div class="sec-line"></div></div>
     <div id="gallery-drawings"></div>
-    <div class="empty" id="empty-drawings" style="display:none"><div class="empty-ico">✏️</div><p>No works yet</p></div>
+    <div class="empty" id="empty-drawings" style="display:none"><div class="empty-ico">✏️</div><p data-i18n="empty">No works yet</p></div>
   </section>
 
   <section id="mixed" style="display:none">
-    <div class="sec-head"><p class="sec-label">Mixed media</p><div class="sec-line"></div></div>
+    <div class="sec-head"><p class="sec-label" data-i18n="sec-mixed">Mixed media</p><div class="sec-line"></div></div>
     <div id="gallery-mixed"></div>
-    <div class="empty" id="empty-mixed" style="display:none"><div class="empty-ico">🎭</div><p>No works yet</p></div>
+    <div class="empty" id="empty-mixed" style="display:none"><div class="empty-ico">🎭</div><p data-i18n="empty">No works yet</p></div>
   </section>
 
   <section id="about" style="display:none">
-    <div class="sec-head"><p class="sec-label">Add your drawings</p><div class="sec-line"></div></div>
+    <div class="sec-head"><p class="sec-label" data-i18n="sec-about">Add your drawings</p><div class="sec-line"></div></div>
     <div class="about">
-      <h2>Add your child's drawings</h2>
-      <p>Upload photos of drawings or draw directly in the browser. Your artworks are stored on this device.</p>
+      <h2 data-i18n="about-h2">Add your child's drawings</h2>
+      <p data-i18n="about-p1">Upload photos of drawings or draw directly in the browser. Your artworks are stored on this device.</p>
       <div class="upload-sec">
-        <button class="upload-btn" onclick="openModal()">Upload a drawing +</button>
+        <button class="upload-btn" onclick="openModal()" data-i18n="upload-btn">Upload a drawing +</button>
       </div>
-      <p style="margin-top:2rem"><a href="https://app.netlify.com/drop" target="_blank" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent)">Deploy to Netlify →</a></p>
+      <p style="margin-top:2rem"><a href="https://app.netlify.com/drop" target="_blank" style="color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent)" data-i18n="deploy">Deploy to Netlify →</a></p>
     </div>
   </section>
 </main>
 
 <footer class="footer">
-  <p>Liam Gallery — All rights reserved — <span id="year"></span></p>
+  <p><span data-i18n="footer">Liam Gallery — All rights reserved</span> — <span id="year"></span></p>
 </footer>
 
 <!-- MODAL -->
 <div class="modal-bg" id="modal-bg" onclick="if(event.target===this)closeModal()">
   <div class="modal">
     <div class="modal-head">
-      <h2 class="modal-t">Upload a drawing</h2>
+      <h2 class="modal-t" data-i18n="modal-title">Upload a drawing</h2>
       <button class="modal-close" onclick="closeModal()">✕</button>
     </div>
 
     <!-- TABS -->
     <div class="tabs">
-      <button class="tab-b active" onclick="switchTab('upload')">Upload</button>
-      <button class="tab-b" onclick="switchTab('draw')">Draw</button>
+      <button class="tab-b active" onclick="switchTab('upload')" data-i18n="tab-upload">Upload</button>
+      <button class="tab-b" onclick="switchTab('draw')" data-i18n="tab-draw">Draw</button>
     </div>
 
     <!-- TAB: UPLOAD -->
     <div id="tab-upload" class="tab active">
       <div class="form-g">
-        <label class="form-l">Image file</label>
+        <label class="form-l" data-i18n="file-label">Image file</label>
         <div class="file-w">
           <input type="file" id="file-input" accept="image/*">
-          <span class="file-l">Click or drag image</span>
+          <span class="file-l" data-i18n="file-text">Click or drag image</span>
           <span class="file-h" id="file-name"></span>
         </div>
       </div>
@@ -306,39 +306,39 @@
     <div id="tab-draw" class="tab">
       <canvas id="canvas" width="400" height="300"></canvas>
       <div class="canvas-btns">
-        <button class="canvas-btn" onclick="clearCanvas()">Clear</button>
+        <button class="canvas-btn" onclick="clearCanvas()" data-i18n="clear">Clear</button>
         <input type="color" id="colorPicker" class="color-in" value="#1a1714">
-        <button class="canvas-btn" onclick="changeSize(2)">Thin</button>
-        <button class="canvas-btn" onclick="changeSize(5)">Medium</button>
-        <button class="canvas-btn" onclick="changeSize(10)">Thick</button>
+        <button class="canvas-btn" onclick="changeSize(2)" data-i18n="thin">Thin</button>
+        <button class="canvas-btn" onclick="changeSize(5)" data-i18n="medium">Medium</button>
+        <button class="canvas-btn" onclick="changeSize(10)" data-i18n="thick">Thick</button>
       </div>
     </div>
 
     <!-- FORM -->
     <div class="form-g">
-      <label class="form-l">Title</label>
+      <label class="form-l" data-i18n="title-label">Title</label>
       <input class="form-i" id="title" type="text">
     </div>
     <div class="form-g">
-      <label class="form-l">Description</label>
+      <label class="form-l" data-i18n="desc-label">Description</label>
       <textarea class="form-ta" id="desc" rows="3" style="resize:none"></textarea>
     </div>
     <div class="form-g">
-      <label class="form-l">Category</label>
+      <label class="form-l" data-i18n="cat-label">Category</label>
       <select class="form-s" id="cat">
-        <option value="paintings">Paintings</option>
-        <option value="drawings">Drawings</option>
-        <option value="mixed">Mixed media</option>
+        <option value="paintings" data-i18n="cat-paintings">Paintings</option>
+        <option value="drawings" data-i18n="cat-drawings">Drawings</option>
+        <option value="mixed" data-i18n="cat-mixed">Mixed media</option>
       </select>
     </div>
 
-    <button class="submit-b" onclick="submitArt()">Upload →</button>
+    <button class="submit-b" onclick="submitArt()" data-i18n="submit">Upload →</button>
   </div>
 </div>
 
 <!-- LIGHTBOX -->
 <div class="lb" id="lb">
-  <button class="lb-close" onclick="closeLb()">✕</button>
+  <button class="lb-close" onclick="closeLb()" data-i18n="close">Close ✕</button>
   <img id="lb-img" src="" alt="">
   <div class="lb-c">
     <div class="lb-t" id="lb-t"></div>
@@ -350,6 +350,154 @@
 <div class="toast" id="toast"></div>
 
 <script>
+// ===== LANGUAGE / i18n =====
+const I18N = {
+  en: {
+    'eyebrow': 'A personal collection',
+    'title': 'Liam',
+    'tagline': 'Original works by a young artist',
+    'year': 'Est. 2025 — Ongoing',
+    'nav-all': 'All works',
+    'nav-paintings': 'Paintings',
+    'nav-drawings': 'Drawings',
+    'nav-mixed': 'Mixed media',
+    'nav-about': 'About',
+    'sec-featured': 'Featured works',
+    'sec-paintings': 'Paintings',
+    'sec-drawings': 'Drawings',
+    'sec-mixed': 'Mixed media',
+    'sec-about': 'Add your drawings',
+    'about-h2': "Add your child's drawings",
+    'about-p1': 'Upload photos of drawings or draw directly in the browser. Your artworks are stored on this device.',
+    'deploy': 'Deploy to Netlify →',
+    'footer': 'Liam Gallery — All rights reserved',
+    'empty': 'No works yet',
+    'upload-btn': 'Upload a drawing +',
+    'modal-title': 'Upload a drawing',
+    'tab-upload': 'Upload',
+    'tab-draw': 'Draw',
+    'file-label': 'Image file',
+    'file-text': 'Click or drag image',
+    'title-label': 'Title',
+    'desc-label': 'Description',
+    'cat-label': 'Category',
+    'cat-paintings': 'Paintings',
+    'cat-drawings': 'Drawings',
+    'cat-mixed': 'Mixed media',
+    'submit': 'Upload →',
+    'clear': 'Clear',
+    'thin': 'Thin',
+    'medium': 'Medium',
+    'thick': 'Thick',
+    'close': 'Close ✕',
+    'toast': 'Drawing added!'
+  },
+  fr: {
+    'eyebrow': 'Une collection personnelle',
+    'title': 'Liam',
+    'tagline': "Œuvres originales d'un jeune artiste",
+    'year': 'Est. 2025 — Continuu',
+    'nav-all': 'Toutes les œuvres',
+    'nav-paintings': 'Peintures',
+    'nav-drawings': 'Dessins',
+    'nav-mixed': 'Techniques mixtes',
+    'nav-about': 'À propos',
+    'sec-featured': 'Œuvres à la une',
+    'sec-paintings': 'Peintures',
+    'sec-drawings': 'Dessins',
+    'sec-mixed': 'Techniques mixtes',
+    'sec-about': 'Ajouter vos dessins',
+    'about-h2': 'Ajouter les dessins de votre enfant',
+    'about-p1': 'Téléversez des photos de dessins ou dessinez directement dans le navigateur. Vos œuvres sont stockées sur cet appareil.',
+    'deploy': 'Déployer sur Netlify →',
+    'footer': 'Galerie Liam — Tous droits réservés',
+    'empty': 'Aucune œuvre',
+    'upload-btn': 'Téléverser un dessin +',
+    'modal-title': 'Téléverser un dessin',
+    'tab-upload': 'Charger',
+    'tab-draw': 'Dessiner',
+    'file-label': 'Fichier image',
+    'file-text': 'Cliquez ou glissez une image',
+    'title-label': 'Titre',
+    'desc-label': 'Description',
+    'cat-label': 'Catégorie',
+    'cat-paintings': 'Peintures',
+    'cat-drawings': 'Dessins',
+    'cat-mixed': 'Techniques mixtes',
+    'submit': 'Téléverser →',
+    'clear': 'Effacer',
+    'thin': 'Fin',
+    'medium': 'Moyen',
+    'thick': 'Épais',
+    'close': 'Fermer ✕',
+    'toast': 'Dessin ajouté !'
+  },
+  es: {
+    'eyebrow': 'Una colección personal',
+    'title': 'Liam',
+    'tagline': 'Obras originales de un joven artista',
+    'year': 'Est. 2025 — Continuo',
+    'nav-all': 'Todas las obras',
+    'nav-paintings': 'Pinturas',
+    'nav-drawings': 'Dibujos',
+    'nav-mixed': 'Técnica mixta',
+    'nav-about': 'Acerca de',
+    'sec-featured': 'Obras destacadas',
+    'sec-paintings': 'Pinturas',
+    'sec-drawings': 'Dibujos',
+    'sec-mixed': 'Técnica mixta',
+    'sec-about': 'Añadir tus dibujos',
+    'about-h2': 'Añadir los dibujos de tu hijo',
+    'about-p1': 'Carga fotos de dibujos o dibuja directamente en el navegador. Tus obras se almacenan en este dispositivo.',
+    'deploy': 'Publicar en Netlify →',
+    'footer': 'Galería Liam — Todos los derechos reservados',
+    'empty': 'Sin obras',
+    'upload-btn': 'Subir un dibujo +',
+    'modal-title': 'Subir un dibujo',
+    'tab-upload': 'Cargar',
+    'tab-draw': 'Dibujar',
+    'file-label': 'Archivo de imagen',
+    'file-text': 'Haz clic o arrastra una imagen',
+    'title-label': 'Título',
+    'desc-label': 'Descripción',
+    'cat-label': 'Categoría',
+    'cat-paintings': 'Pinturas',
+    'cat-drawings': 'Dibujos',
+    'cat-mixed': 'Técnica mixta',
+    'submit': 'Subir →',
+    'clear': 'Borrar',
+    'thin': 'Fino',
+    'medium': 'Medio',
+    'thick': 'Grueso',
+    'close': 'Cerrar ✕',
+    'toast': '¡Dibujo añadido!'
+  }
+};
+
+let lang = localStorage.getItem('lang') || 'en';
+
+function t(key) {
+  return (I18N[lang] || I18N.en)[key] || key;
+}
+
+function setLang(l) {
+  lang = l;
+  localStorage.setItem('lang', l);
+  document.documentElement.lang = l;
+  
+  // Update all elements with data-i18n attribute
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.dataset.i18n;
+    const text = t(key);
+    el.textContent = text;
+  });
+  
+  // Update button active state
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.id === 'btn-' + l);
+  });
+}
+
 // ===== DATA =====
 function load() { try { return JSON.parse(localStorage.getItem('gal') || '[]'); } catch(e) { return []; } }
 function save(a) { try { localStorage.setItem('gal', JSON.stringify(a)); } catch(e) { toast('Storage full'); } }
@@ -439,7 +587,7 @@ function saveArt(src) {
   arr.unshift(art);
   save(arr);
   
-  toast('Drawing added!');
+  toast(t('toast'));
   
   document.getElementById('title').value = '';
   document.getElementById('desc').value = '';
@@ -508,17 +656,10 @@ function makeTile(art, items, idx, cls) {
 
 // ===== LIGHTBOX =====
 function openLb(items, idx) {
-  const img = document.getElementById('lb-img');
-  const title = document.getElementById('lb-t');
-  const desc = document.getElementById('lb-m');
-  const lb = document.getElementById('lb');
-  
-  img.src = items[idx].src;
-  img.alt = items[idx].title;
-  title.textContent = items[idx].title || 'Untitled';
-  desc.textContent = items[idx].desc || '';
-  
-  lb.classList.add('open');
+  document.getElementById('lb-img').src = items[idx].src;
+  document.getElementById('lb-t').textContent = items[idx].title;
+  document.getElementById('lb-m').textContent = items[idx].desc;
+  document.getElementById('lb').classList.add('open');
   document.body.style.overflow = 'hidden';
 }
 
@@ -527,16 +668,14 @@ function closeLb() {
   document.body.style.overflow = '';
 }
 
-// Close lightbox on ESC key
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && document.getElementById('lb').classList.contains('open')) {
+document.getElementById('lb').addEventListener('click', (e) => {
+  if (e.target.id === 'lb') {
     closeLb();
   }
 });
 
-// Close lightbox when clicking outside image
-document.getElementById('lb').addEventListener('click', (e) => {
-  if (e.target.id === 'lb') {
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && document.getElementById('lb').classList.contains('open')) {
     closeLb();
   }
 });
@@ -565,16 +704,11 @@ function toast(msg) {
   toastTimer = setTimeout(() => el.classList.remove('show'), 2500);
 }
 
-// ===== LANG =====
-function setLang(l) {
-  localStorage.setItem('lang', l);
-  ['en', 'fr', 'es'].forEach(x => document.getElementById('btn-' + x).classList.toggle('active', x === l));
-}
-
 // ===== INIT =====
 document.getElementById('year').textContent = new Date().getFullYear();
 updateNav();
 renderGallery();
+setLang(lang);
 </script>
 
 </body>
